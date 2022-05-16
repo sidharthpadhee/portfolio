@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sidharth Padhee</title>
-    <link>https://dragod812.github.io/myself/</link>
+    <link>https://sidharthpadhee.github.io/</link>
     <description>Recent content on Sidharth Padhee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dragod812.github.io/myself/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sidharthpadhee.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why should you read me ?</title>
-      <link>https://dragod812.github.io/myself/posts/hello/</link>
+      <link>https://sidharthpadhee.github.io/posts/hello/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dragod812.github.io/myself/posts/hello/</guid>
+      <guid>https://sidharthpadhee.github.io/posts/hello/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
  Fusce pharetra suscipit orci nec tempor.</description>
       <content>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. &lt;strong&gt;Donec quis dolor nec nunc mollis interdum vel in purus&lt;/strong&gt;. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.&lt;/p&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>About</title>
-      <link>https://dragod812.github.io/myself/about/</link>
+      <link>https://sidharthpadhee.github.io/about/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dragod812.github.io/myself/about/</guid>
+      <guid>https://sidharthpadhee.github.io/about/</guid>
       <description>Hi there My name is Radek and I&amp;rsquo;m the author of this theme. I made it to help you present your ideas easier.
 We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
 This theme is pretty basic and covers all of the essentials. All you have to do is start typing!</description>
@@ -55,10 +55,10 @@ This theme is pretty basic and covers all of the essentials. All you have to do 
     
     <item>
       <title>Showcase</title>
-      <link>https://dragod812.github.io/myself/showcase/</link>
+      <link>https://sidharthpadhee.github.io/showcase/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://dragod812.github.io/myself/showcase/</guid>
+      <guid>https://sidharthpadhee.github.io/showcase/</guid>
       <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
       <content>&lt;h2 id=&#34;header-2&#34;&gt;Header 2&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. &lt;strong&gt;Donec quis dolor nec nunc mollis interdum vel in purus&lt;/strong&gt;. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.&lt;/p&gt;

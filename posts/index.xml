@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Sidharth Padhee</title>
-    <link>https://dragod812.github.io/myself/posts/</link>
+    <link>https://sidharthpadhee.github.io/posts/</link>
     <description>Recent content in Posts on Sidharth Padhee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dragod812.github.io/myself/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sidharthpadhee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why should you read me ?</title>
-      <link>https://dragod812.github.io/myself/posts/hello/</link>
+      <link>https://sidharthpadhee.github.io/posts/hello/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dragod812.github.io/myself/posts/hello/</guid>
+      <guid>https://sidharthpadhee.github.io/posts/hello/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
  Fusce pharetra suscipit orci nec tempor.</description>
       <content>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. &lt;strong&gt;Donec quis dolor nec nunc mollis interdum vel in purus&lt;/strong&gt;. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.&lt;/p&gt;
