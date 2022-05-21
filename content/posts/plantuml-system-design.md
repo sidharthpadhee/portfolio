@@ -1,7 +1,7 @@
 +++
 title = "PlantUML: The Ultimate System Design Aid"
-date = "2019-01-25"
-author = "Lorem Ipsum"
+date = "2022-03-05"
+author = "Sidharth Padhee"
 cover = "plantumlsystemdesign/cover.png"
 description = "How to code, save, version control and copy/paste your engineering diagrams with amazing speed?"
 +++
