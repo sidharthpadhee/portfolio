@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Terminal</title><link>https://sidharthpadhee.github.io/posts/</link><description>Recent content in Posts on Terminal</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://sidharthpadhee.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>PlantUML: The Ultimate System Design Aid</title><link>https://sidharthpadhee.github.io/posts/plantuml-system-design/</link><pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate><guid>https://sidharthpadhee.github.io/posts/plantuml-system-design/</guid><description>As I gain more experience in writing software, I am constantly in search of tools that make my life easy and also save a lot of time. Some of the tools that i use are —
+Vim Everywhere — Starting from my code editors, to terminal command line, to my browser — all have vim keybindings. Heck, I have even customised my keyboard to create a HYPERKEY setup for vim normal mode via Hammerspoon and Karabiner.</description><content>&lt;p>As I gain more experience in writing software, I am constantly in search of tools that make my life easy and also save a lot of time. Some of the tools that i use are —&lt;/p>
+&lt;ol>
+&lt;li>Vim Everywhere — Starting from my code editors, to terminal command line, to my browser — all have vim keybindings. Heck, I have even customised my keyboard to create a &lt;a href="https://gist.github.com/dragod812/fee8f5d4e3a24cf99ccf5e34d7f57d53">HYPERKEY setup&lt;/a> for vim normal mode via &lt;a href="https://www.hammerspoon.org/">Hammerspoon&lt;/a> and &lt;a href="https://karabiner-elements.pqrs.org/">Karabiner&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://sourcegraph.com/search">Sourcegraph&lt;/a> — Code search in all repositories. Using the Sourcegraph extension in VSCode is very seamless.&lt;/li>
+&lt;li>&lt;a href="https://www.alfredapp.com/">Alfred&lt;/a> — This app gives you a Mac Spotlight like search capability, but on steroids. I create custom web searches in this app to get to websites with parameterised URLs in a matter of seconds.&lt;/li>
+&lt;/ol>
+&lt;p>But &lt;a href="https://plantuml.com/">PlantUML&lt;/a> is one of the most impressive tools!&lt;/p>
+&lt;p>What if i told you, You can code your architecture, interaction, sequence and class diagrams ? PlantUML does exactly that!&lt;/p>
+&lt;p>I have created templates for different types of Engineering diagrams, which I can quickly pull up and start charting my design!&lt;/p>
+&lt;p>For example this is my Architecture / Interaction Diagram Template.&lt;/p>
+&lt;pre tabindex="0">&lt;code>@startuml
+!include &amp;lt;awslib/AWSCommon&amp;gt;
+!include &amp;lt;awslib/AWSSimplified.puml&amp;gt;
+!include &amp;lt;awslib/Compute/all.puml&amp;gt;
+!include &amp;lt;awslib/mobile/all.puml&amp;gt;
+!include &amp;lt;awslib/general/all.puml&amp;gt;
+!include &amp;lt;awslib/GroupIcons/all.puml&amp;gt;
+!include &amp;lt;awslib/NetworkingAndContentDelivery/all.puml&amp;gt;
+skinparam ComponentStyle rectangle
+rectangle &amp;#34;High Level Design&amp;#34; {
+Users(users, &amp;#34;People&amp;#34;, &amp;#34;&amp;#34;)
+frame Clients {
+Mobileclient(appclient, &amp;#34;App&amp;#34;, &amp;#34;&amp;#34;)
+Client(webclient, &amp;#34;Web&amp;#34;, &amp;#34;&amp;#34;)
+}
+ELBNetworkLoadBalancer(lb, &amp;#34;Load Balancer&amp;#34;, &amp;#34;&amp;#34;)
+GlobalAccelerator(cdn, &amp;#34;CDN&amp;#34;, &amp;#34;&amp;#34;)
+component &amp;#34;Service&amp;#34; as service
+queue &amp;#34;Message Queue&amp;#34; as q
+database &amp;#34;Database&amp;#34; as db {
+frame table {
+database user as userdb
+}
+}
+}
+users ..&amp;gt; Clients
+cdn &amp;lt;-&amp;gt; appclient
+appclient --&amp;gt; lb :1: message
+webclient ..&amp;gt; lb :2: more message
+lb --&amp;gt; service
+lb --&amp;gt; q
+service --&amp;gt; userdb
+@enduml
+&lt;/code>&lt;/pre>&lt;p>Just paste the above code on the &lt;a href="https://www.plantuml.com/plantuml">online server&lt;/a>. This should generate something like this —&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/architecture-template.png" alt="architecture template">&lt;/p>
+&lt;p>Now to add interaction between components in this diagram you just have to add —&lt;/p>
+&lt;p>&lt;code>service -&amp;gt; q : Push Elements into queue&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/interaction-sample.png" alt="interaction example">&lt;/p>
+&lt;p>There you go — You can code, save, version control, copy/paste your diagrams with amazing speed! You also have a &lt;a href="https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md">lot of choices&lt;/a> for the icons that you use in these diagrams.&lt;/p>
+&lt;p>You want to chart a sequence diagram ? This is my template —&lt;/p>
+&lt;pre tabindex="0">&lt;code>@startuml
+participant Participant as Foo
+actor Actor as Foo1
+boundary Boundary as Foo2
+control Control as Foo3
+entity Entity as Foo4
+database Database as Foo5
+collections Collections as Foo6
+queue Queue as Foo7
+alt success
+Foo -&amp;gt; Foo1 : To actor
+activate Foo1
+note left: this is a first note
+else failure
+Foo -&amp;gt; Foo2 : To boundary
+note over Foo2, Foo1: Both are great items
+end
+par Run in parallel go routines
+Foo -&amp;gt; Foo3 : To control
+else
+Foo -&amp;gt; Foo4 : To entity
+else
+Foo -&amp;gt; Foo5 : To database
+end
+group Grouped Actions
+loop 100 times
+Foo -&amp;gt; Foo6 ++ #FFBBBB: activate collections with color
+Foo &amp;lt;- Foo6 -- : deactivate after done
+destroy Foo6
+end
+Foo -&amp;gt; Foo7: To queue
+end
+Foo1 -&amp;gt; Foo : work done
+deactivate Foo1
+@enduml
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/sequence-diagram-template.png" alt="sequence diagram template">&lt;/p>
+&lt;p>I urge you to explore all the different diagrams in &lt;a href="https://plantuml.com/">plantuml.com&lt;/a>. It will definitely make your life very easy. For example, I was able to chart the high level design of a very basic chat application in like 10 mins →&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/chat-diagram.png" alt="chat diagram">&lt;/p></content></item></channel></rss>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Terminal</title><link>https://sidharthpadhee.github.io/</link><description>Recent content on Terminal</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://sidharthpadhee.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://sidharthpadhee.github.io/about/</link><pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate><guid>https://sidharthpadhee.github.io/about/</guid><description>Hi there My Name is Sidharth Padhee. Call me Sid. Or Paddy. Or just don&amp;rsquo;t.
+I consider myself a Software Generalist, who has varied interests and therefore hungry to learn and implement new things.
+&amp;lt;TBD!&amp;gt;</description><content>&lt;h1 id="hi-there">Hi there&lt;/h1>
+&lt;p>My Name is Sidharth Padhee. Call me Sid. Or Paddy. Or just don&amp;rsquo;t.&lt;/p>
+&lt;blockquote>
+&lt;p>I consider myself a Software Generalist, who has varied interests and therefore hungry to learn and implement new things.&lt;/p>
+&lt;/blockquote>
+&lt;p>&amp;lt;TBD!&amp;gt;&lt;/p></content></item><item><title>PlantUML: The Ultimate System Design Aid</title><link>https://sidharthpadhee.github.io/posts/plantuml-system-design/</link><pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate><guid>https://sidharthpadhee.github.io/posts/plantuml-system-design/</guid><description>As I gain more experience in writing software, I am constantly in search of tools that make my life easy and also save a lot of time. Some of the tools that i use are —
+Vim Everywhere — Starting from my code editors, to terminal command line, to my browser — all have vim keybindings. Heck, I have even customised my keyboard to create a HYPERKEY setup for vim normal mode via Hammerspoon and Karabiner.</description><content>&lt;p>As I gain more experience in writing software, I am constantly in search of tools that make my life easy and also save a lot of time. Some of the tools that i use are —&lt;/p>
+&lt;ol>
+&lt;li>Vim Everywhere — Starting from my code editors, to terminal command line, to my browser — all have vim keybindings. Heck, I have even customised my keyboard to create a &lt;a href="https://gist.github.com/dragod812/fee8f5d4e3a24cf99ccf5e34d7f57d53">HYPERKEY setup&lt;/a> for vim normal mode via &lt;a href="https://www.hammerspoon.org/">Hammerspoon&lt;/a> and &lt;a href="https://karabiner-elements.pqrs.org/">Karabiner&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://sourcegraph.com/search">Sourcegraph&lt;/a> — Code search in all repositories. Using the Sourcegraph extension in VSCode is very seamless.&lt;/li>
+&lt;li>&lt;a href="https://www.alfredapp.com/">Alfred&lt;/a> — This app gives you a Mac Spotlight like search capability, but on steroids. I create custom web searches in this app to get to websites with parameterised URLs in a matter of seconds.&lt;/li>
+&lt;/ol>
+&lt;p>But &lt;a href="https://plantuml.com/">PlantUML&lt;/a> is one of the most impressive tools!&lt;/p>
+&lt;p>What if i told you, You can code your architecture, interaction, sequence and class diagrams ? PlantUML does exactly that!&lt;/p>
+&lt;p>I have created templates for different types of Engineering diagrams, which I can quickly pull up and start charting my design!&lt;/p>
+&lt;p>For example this is my Architecture / Interaction Diagram Template.&lt;/p>
+&lt;pre tabindex="0">&lt;code>@startuml
+!include &amp;lt;awslib/AWSCommon&amp;gt;
+!include &amp;lt;awslib/AWSSimplified.puml&amp;gt;
+!include &amp;lt;awslib/Compute/all.puml&amp;gt;
+!include &amp;lt;awslib/mobile/all.puml&amp;gt;
+!include &amp;lt;awslib/general/all.puml&amp;gt;
+!include &amp;lt;awslib/GroupIcons/all.puml&amp;gt;
+!include &amp;lt;awslib/NetworkingAndContentDelivery/all.puml&amp;gt;
+skinparam ComponentStyle rectangle
+rectangle &amp;#34;High Level Design&amp;#34; {
+Users(users, &amp;#34;People&amp;#34;, &amp;#34;&amp;#34;)
+frame Clients {
+Mobileclient(appclient, &amp;#34;App&amp;#34;, &amp;#34;&amp;#34;)
+Client(webclient, &amp;#34;Web&amp;#34;, &amp;#34;&amp;#34;)
+}
+ELBNetworkLoadBalancer(lb, &amp;#34;Load Balancer&amp;#34;, &amp;#34;&amp;#34;)
+GlobalAccelerator(cdn, &amp;#34;CDN&amp;#34;, &amp;#34;&amp;#34;)
+component &amp;#34;Service&amp;#34; as service
+queue &amp;#34;Message Queue&amp;#34; as q
+database &amp;#34;Database&amp;#34; as db {
+frame table {
+database user as userdb
+}
+}
+}
+users ..&amp;gt; Clients
+cdn &amp;lt;-&amp;gt; appclient
+appclient --&amp;gt; lb :1: message
+webclient ..&amp;gt; lb :2: more message
+lb --&amp;gt; service
+lb --&amp;gt; q
+service --&amp;gt; userdb
+@enduml
+&lt;/code>&lt;/pre>&lt;p>Just paste the above code on the &lt;a href="https://www.plantuml.com/plantuml">online server&lt;/a>. This should generate something like this —&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/architecture-template.png" alt="architecture template">&lt;/p>
+&lt;p>Now to add interaction between components in this diagram you just have to add —&lt;/p>
+&lt;p>&lt;code>service -&amp;gt; q : Push Elements into queue&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/interaction-sample.png" alt="interaction example">&lt;/p>
+&lt;p>There you go — You can code, save, version control, copy/paste your diagrams with amazing speed! You also have a &lt;a href="https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md">lot of choices&lt;/a> for the icons that you use in these diagrams.&lt;/p>
+&lt;p>You want to chart a sequence diagram ? This is my template —&lt;/p>
+&lt;pre tabindex="0">&lt;code>@startuml
+participant Participant as Foo
+actor Actor as Foo1
+boundary Boundary as Foo2
+control Control as Foo3
+entity Entity as Foo4
+database Database as Foo5
+collections Collections as Foo6
+queue Queue as Foo7
+alt success
+Foo -&amp;gt; Foo1 : To actor
+activate Foo1
+note left: this is a first note
+else failure
+Foo -&amp;gt; Foo2 : To boundary
+note over Foo2, Foo1: Both are great items
+end
+par Run in parallel go routines
+Foo -&amp;gt; Foo3 : To control
+else
+Foo -&amp;gt; Foo4 : To entity
+else
+Foo -&amp;gt; Foo5 : To database
+end
+group Grouped Actions
+loop 100 times
+Foo -&amp;gt; Foo6 ++ #FFBBBB: activate collections with color
+Foo &amp;lt;- Foo6 -- : deactivate after done
+destroy Foo6
+end
+Foo -&amp;gt; Foo7: To queue
+end
+Foo1 -&amp;gt; Foo : work done
+deactivate Foo1
+@enduml
+&lt;/code>&lt;/pre>&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/sequence-diagram-template.png" alt="sequence diagram template">&lt;/p>
+&lt;p>I urge you to explore all the different diagrams in &lt;a href="https://plantuml.com/">plantuml.com&lt;/a>. It will definitely make your life very easy. For example, I was able to chart the high level design of a very basic chat application in like 10 mins →&lt;/p>
+&lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/chat-diagram.png" alt="chat diagram">&lt;/p></content></item><item><title>Showcase</title><link>https://sidharthpadhee.github.io/showcase/</link><pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate><guid>https://sidharthpadhee.github.io/showcase/</guid><description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description><content>&lt;h2 id="header-2">Header 2&lt;/h2>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. &lt;strong>Donec quis dolor nec nunc mollis interdum vel in purus&lt;/strong>. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.&lt;/p>
+&lt;blockquote>
+&lt;p>Fusce pharetra suscipit orci nec tempor. Quisque vitae sem sit amet sem mollis consequat. Sed at imperdiet lorem. Vestibulum pharetra faucibus odio, ac feugiat tellus sollicitudin at. Pellentesque varius tristique mi imperdiet dapibus. Duis orci odio, sodales lacinia venenatis sit amet, feugiat et diam.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;p>Nulla libero turpis, lacinia vitae cursus ut, auctor dictum nisl. Fusce varius felis nec sem ullamcorper, at convallis nisi vestibulum. Duis risus odio, porta sit amet placerat mollis, tincidunt non mauris. Suspendisse fringilla, &lt;code>odio a dignissim pharetra&lt;/code>, est urna sollicitudin urna, eu scelerisque magna ex vitae tellus.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">/* PostCSS code */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">pre&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background&lt;/span>: &lt;span style="color:#ae81ff">#1a1a1d&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">border-radius&lt;/span>: &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">font-size&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">rem&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">overflow&lt;/span>: &lt;span style="color:#66d9ef">auto&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#960050;background-color:#1e0010">@media&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">(--phone)&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">white-space&lt;/span>: &lt;span style="color:#66d9ef">pre-wrap&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">word-wrap&lt;/span>: &lt;span style="color:#66d9ef">break-word&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">code&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background&lt;/span>: &lt;span style="color:#66d9ef">none&lt;/span> &lt;span style="color:#75715e">!important&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#ccc&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">font-size&lt;/span>: &lt;span style="color:#66d9ef">inherit&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// JS code
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">menuTrigger&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;.menu-trigger&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">menu&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;.menu&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">mobileQuery&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">getComputedStyle&lt;/span>(document.&lt;span style="color:#a6e22e">body&lt;/span>).&lt;span style="color:#a6e22e">getPropertyValue&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;--phoneWidth&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">isMobile&lt;/span> &lt;span style="color:#f92672">=&lt;/span> () =&amp;gt; window.&lt;span style="color:#a6e22e">matchMedia&lt;/span>(&lt;span style="color:#a6e22e">mobileQuery&lt;/span>).&lt;span style="color:#a6e22e">matches&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">isMobileMenu&lt;/span> &lt;span style="color:#f92672">=&lt;/span> () =&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">menuTrigger&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">toggle&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;hidden&amp;#39;&lt;/span>, &lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#a6e22e">isMobile&lt;/span>())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">menu&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">toggle&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;hidden&amp;#39;&lt;/span>, &lt;span style="color:#a6e22e">isMobile&lt;/span>())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">isMobileMenu&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">menuTrigger&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;click&amp;#39;&lt;/span>, () =&amp;gt; &lt;span style="color:#a6e22e">menu&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">toggle&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;hidden&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>window.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;resize&amp;#39;&lt;/span>, &lt;span style="color:#a6e22e">isMobileMenu&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;!-- HTML code --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">section&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;main&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">h1&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;title&amp;#34;&lt;/span>&amp;gt;{{ .Title }}&amp;lt;/&lt;span style="color:#f92672">h1&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {{ range .Pages }}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {{ .Render &amp;#34;summary&amp;#34;}}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {{ end }}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">section&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;p>Curabitur scelerisque felis viverra varius scelerisque. Ut enim libero, molestie gravida blandit at, mollis ornare tellus. Cras arcu mi, ultrices vel pulvinar vel, volutpat eu tortor. Nullam nec eros quis massa ultrices iaculis sed in metus. Praesent sollicitudin sem sit amet orci tempor gravida.&lt;/p>
+&lt;ul>
+&lt;li>Maecenas elementum vitae nibh vitae porttitor.&lt;/li>
+&lt;li>Aenean consequat, risus ut cursus placerat, arcu nulla sodales risus, ut molestie tellus tellus et dui.&lt;/li>
+&lt;li>Integer imperdiet turpis vitae lacus imperdiet, ut ornare ligula auctor. Integer in mi eu velit vehicula suscipit eget vulputate nulla.&lt;/li>
+&lt;li>Etiam vitae enim quis velit lobortis placerat a ut sem.
+&lt;ul>
+&lt;li>Curabitur lobortis ante sit amet orci pulvinar, sollicitudin viverra nunc accumsan.&lt;/li>
+&lt;li>Praesent fermentum orci quis leo facilisis posuere.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Aliquam erat volutpat. In hac habitasse platea dictumst. Nunc ut tincidunt mauris. Sed at gravida risus, id semper magna. Nullam vitae enim mattis, sodales neque non, pharetra elit. Cras sit amet sagittis augue, et finibus turpis. Ut tempus tincidunt diam vel pharetra. Nulla porttitor odio sit amet nulla scelerisque, quis aliquam mi imperdiet. Sed tincidunt dui vel tellus vestibulum rhoncus. Donec tempus ultrices velit.&lt;/p></content></item></channel></rss>
