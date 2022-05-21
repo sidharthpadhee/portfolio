@@ -12,8 +12,8 @@ paginate = 5
 
 [languages]
   [languages.en]
-    title = "Terminal"
-    subtitle = "A simple, retro theme for Hugo"
+    title = "Sidharth Padhee"
+    subtitle = "Personal blog and portfolio"
     keywords = ""
     copyright = ""
     menuMore = "Show more"
