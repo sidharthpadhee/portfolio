@@ -21,7 +21,7 @@ I have created templates for different types of Engineering diagrams, which I ca
 For example this is my Architecture / Interaction Diagram Template.
 
 
-```
+```plantuml
 @startuml
 !include <awslib/AWSCommon>
 !include <awslib/AWSSimplified.puml>
@@ -76,7 +76,7 @@ There you go — You can code, save, version control, copy/paste your diagrams w
 
 You want to chart a sequence diagram ? This is my template —
 
-```
+```plantuml
 @startuml
 participant Participant as Foo
 actor       Actor       as Foo1
