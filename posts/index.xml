@@ -9,7 +9,7 @@ Vim Everywhere — Starting from my code editors, to terminal command line, to m
 &lt;p>What if i told you, You can code your architecture, interaction, sequence and class diagrams ? PlantUML does exactly that!&lt;/p>
 &lt;p>I have created templates for different types of Engineering diagrams, which I can quickly pull up and start charting my design!&lt;/p>
 &lt;p>For example this is my Architecture / Interaction Diagram Template.&lt;/p>
-&lt;pre tabindex="0">&lt;code>@startuml
+&lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">@startuml
 !include &amp;lt;awslib/AWSCommon&amp;gt;
 !include &amp;lt;awslib/AWSSimplified.puml&amp;gt;
 !include &amp;lt;awslib/Compute/all.puml&amp;gt;
@@ -49,7 +49,7 @@ service --&amp;gt; userdb
 &lt;p>&lt;img src="https://sidharthpadhee.github.io/plantumlsystemdesign/interaction-sample.png" alt="interaction example">&lt;/p>
 &lt;p>There you go — You can code, save, version control, copy/paste your diagrams with amazing speed! You also have a &lt;a href="https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md">lot of choices&lt;/a> for the icons that you use in these diagrams.&lt;/p>
 &lt;p>You want to chart a sequence diagram ? This is my template —&lt;/p>
-&lt;pre tabindex="0">&lt;code>@startuml
+&lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">@startuml
 participant Participant as Foo
 actor Actor as Foo1
 boundary Boundary as Foo2
